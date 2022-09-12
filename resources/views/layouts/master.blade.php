@@ -55,24 +55,7 @@
     <ul class="navbar-nav ml-auto">
 
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-            Profile
 
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-            </a>
-
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </div>
-      </li>
 
     </ul>
   </nav>
@@ -94,8 +77,6 @@
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">{{Auth::user()->name}}
-
             </a>
         </div>
       </div>
@@ -116,7 +97,6 @@
             </a>
           </li>
         </ul>
-        @can('user-list')
         <ul class="nav nav-pills nav-sidebar flex-column">
             <li class="nav-item menu-open">
               <a href="{{route('users.index')}}" class="nav-link ">
@@ -126,51 +106,16 @@
               </a>
             </li>
         </ul>
-        @endcan
-        @can('role-list')
         <ul class="nav nav-pills nav-sidebar flex-column">
             <li class="nav-item menu-open">
-              <a href="{{route('roles.index')}}" class="nav-link ">
+              <a href="{{route('refers')}}" class="nav-link ">
                 <p>
-                   Roles
+                  Refered Users
                 </p>
               </a>
             </li>
         </ul>
-        @endcan
-        @can('station-list')
-        <ul class="nav nav-pills nav-sidebar flex-column">
-            <li class="nav-item menu-open">
-              <a href="{{route('stations')}}" class="nav-link ">
-                <p>
-                  Stations
-                </p>
-              </a>
-            </li>
-        </ul>
-        @endcan
-        @can('sensor-list')
-        <ul class="nav nav-pills nav-sidebar flex-column">
-            <li class="nav-item menu-open">
-              <a href="{{route('sensors')}}" class="nav-link ">
-                <p>
-                  Sensors
-                </p>
-              </a>
-            </li>
-        </ul>
-        @endcan
-        @can('assign-sensor-list')
-        <ul class="nav nav-pills nav-sidebar flex-column">
-            <li class="nav-item menu-open">
-              <a href="{{route('assign_sensor')}}" class="nav-link ">
-                <p>
-                  Assign Sensor
-                </p>
-              </a>
-            </li>
-        </ul>
-        @endcan
+
     </nav>
       <!-- /.sidebar-menu -->
     </div>
